@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title} ?: 'Xác Nhận Đơn Hàng'">Xác Nhận Đơn Hàng</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<section class="container mt-3">
+    <h1>Xác Nhận Đơn Hàng</h1>
+    <p th:text="${message}"></p>
+</section>
+
+<a th:href="@{/products}" class="btn btn-link">Quay lại danh sách</a>
+</body>
+</html>
