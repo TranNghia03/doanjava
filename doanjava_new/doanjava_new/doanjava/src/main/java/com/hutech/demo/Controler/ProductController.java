@@ -11,6 +11,8 @@ import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -38,8 +40,17 @@ public class ProductController {
 
     // Display a list of all products
     @GetMapping
-    public String showProductList(Model model ) {
+    public String showProductList(Model model ,Authentication authentication) {
         List<Category> categories = categoryService.getAllCategories();
+        List<Product> products;
+        boolean isAdminOrEmployee = authentication.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .anyMatch(role -> role.equals("ADMIN") || role.equals("EMPLOYEE"));
+
+        if (isAdminOrEmployee) {
+            products = productService.getAllNotDeletedProducts();
+
+        }
         model.addAttribute("products", productService.getAllProducts());
         model.addAttribute("categories", categories);
         return "/products/product-list";
@@ -156,5 +167,10 @@ public class ProductController {
         model.addAttribute("products", products);
         model.addAttribute("categories", categories);
         return "/products/product-list";
+    }
+    @GetMapping("/toggleActive/{id}")
+    public String toggleProductActive(@PathVariable("id") Long id) {
+        productService.toggleProductActive(id);
+        return "redirect:/products";
     }
 }

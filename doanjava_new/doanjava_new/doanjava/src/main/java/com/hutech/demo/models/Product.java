@@ -21,12 +21,11 @@ public class Product {
     private String nsx;
     private  String xuatsu;
     private String image;
+    private Boolean isDelete = false;
+    private Boolean isActive = true;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-
-
-
     public long getProductId() {
         return id;
     }

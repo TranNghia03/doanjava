@@ -22,6 +22,15 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
+    public List<Product> getAllNotDeletedProducts() {
+        return productRepository.findAllNotDeleted();
+    }
+    public List<Product> getAllActiveAndNotDeletedProducts() {
+        return productRepository.findAllActiveAndNotDeleted();
+    }
+    public List<Product> getAllDeletedProducts() {
+        return productRepository.findAllDeleted();
+    }
 
     // Retrieve a product by its id
     public Optional<Product> getProductById(Long id) {
@@ -56,6 +65,11 @@ public class ProductService {
     }
     public List<Product> searchByName(String keyword) {
         return productRepository.findByNameContainingIgnoreCase(keyword);
+    }
+    public void toggleProductActive(Long id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new IllegalStateException("Product not found"));
+        product.setIsActive(!product.getIsActive());
+        productRepository.save(product);
     }
     public List<Product> getProductsByCategory(Category category) {
         return productRepository.findByCategory(category);
