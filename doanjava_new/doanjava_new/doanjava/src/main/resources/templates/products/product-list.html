@@ -32,6 +32,29 @@
 <body>
 <section layout:fragment="content">
     <div class="container mt-4">
+        <h2>Top Sales Products</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Total Sales</th>
+                <th>Order</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="revenue : ${topSaleProducts}">
+                <td th:text="${revenue.product.name}"></td>
+                <td th:text="${revenue.totalSales} + ' sales'"></td>
+                <td class="card-footer">
+                    <form th:action="@{/cart/add}" method="post" sec:authorize="isAuthenticated()" class="mt-2">
+                        <input type="number" name="quantity" min="1" value="1" class="form-control d-inline-block mb-2" style="width: 70px;">
+                        <input type="hidden" th:value="${revenue.product.id}" name="productId"/>
+                        <button type="submit" class="btn btn-warning btn-sm">Thêm Vào Giỏ</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
         <h1>Danh Sách Sản Phẩm</h1>
 
         <div class="row mb-3" sec:authorize="!hasAuthority('ADMIN')">
@@ -61,6 +84,7 @@
             <button class="btn btn-primary mb-3">
                 <a th:href="@{/products/add}" class="bi bi-plus text-white" style="text-decoration: none;"> Thêm Sản Phẩm Mới</a>
             </button>
+
             <table class="table table-bordered table-hover">
                 <thead class="table-dark">
                 <tr>
@@ -104,6 +128,7 @@
 
         <div sec:authorize="!hasAuthority('ADMIN')">
             <div class="row row-cols-1 row-cols-md-3 g-4">
+
                 <div class="col" th:each="product : ${products}" th:if="${product.isActive}">
                     <div class="card h-100">
                         <img th:src="@{${product.image}}" alt="Product Image" class="card-img-top product-image" style="height: 200px; width: 100%; object-fit: cover;">
