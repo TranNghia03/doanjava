@@ -3,6 +3,7 @@ package com.hutech.demo.Controler;
 
 import com.hutech.demo.models.Category;
 import com.hutech.demo.models.Product;
+import com.hutech.demo.models.Revenue;
 import com.hutech.demo.repository.ProductRepository;
 import com.hutech.demo.service.CategoryService;
 import com.hutech.demo.service.ProductService;
@@ -51,8 +52,10 @@ public class ProductController {
             products = productService.getAllNotDeletedProducts();
 
         }
+        List<Revenue> topSaleProducts = productService.getTop4SaleProducts();
         model.addAttribute("products", productService.getAllProducts());
         model.addAttribute("categories", categories);
+        model.addAttribute("topSaleProducts", topSaleProducts);
         return "/products/product-list";
     }
 
