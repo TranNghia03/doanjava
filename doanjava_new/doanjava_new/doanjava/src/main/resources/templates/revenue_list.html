@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Revenue List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Revenue List</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Total Sales</th>
+            <th>Total Revenue</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterate over revenues and display each -->
+        <tr th:each="revenue : ${revenues}">
+            <td th:text="${revenue.product.name}"></td>
+            <td th:text="${revenue.totalSales}"></td>
+            <td th:text="${revenue.totalRevenue}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
