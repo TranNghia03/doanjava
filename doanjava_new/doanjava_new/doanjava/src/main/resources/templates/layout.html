@@ -41,6 +41,9 @@
                 <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')">
                     <a th:href="@{/order}" class="nav-link text-white">Đơn hàng</a>
                 </li>
+                <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')">
+                   <a class="nav-link text-white active" aria-current="page" href="/Revenue">Thống kê</a>
+                </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                 <li class="nav-item" sec:authorize="!hasAnyAuthority('ADMIN')">

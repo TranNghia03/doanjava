@@ -95,7 +95,7 @@ public class ProductService {
                 "SELECT r FROM Revenue r WHERE r.product.isActive = true ORDER BY r.totalSales DESC",
                 Revenue.class
         );
-        query.setMaxResults(5);
+        query.setMaxResults(3);
         return query.getResultList();
     }
 

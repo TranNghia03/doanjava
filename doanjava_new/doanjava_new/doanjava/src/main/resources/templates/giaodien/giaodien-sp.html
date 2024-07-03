@@ -9,16 +9,7 @@
 </head>
 <body>
 <section layout:fragment="content">
-    <h2>Top 4 Sale Products</h2>
-    <ul>
-        <li th:each="revenue : ${topSaleProducts}">
-            <span th:text="${revenue.product.name}"></span>
-            <span> - </span>
-            <span th:text="${revenue.totalSales} + ' sales'"></span>
-            <span> - </span>
 
-        </li>
-    </ul>
     <h1>Danh Sách Sản Phẩm</h1>
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
@@ -57,6 +48,16 @@
         </tr>
         </tbody>
     </table>
+    <h2>Top 4 Sale Products</h2>
+    <ul>
+        <li th:each="revenue : ${topSaleProducts}">
+            <span th:text="${revenue.product.name}"></span>
+            <span> - </span>
+            <span th:text="${revenue.totalSales} + ' sales'"></span>
+            <span> - </span>
+
+        </li>
+    </ul>
 </section>
 </body>
 </html>

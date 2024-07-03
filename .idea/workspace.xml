@@ -5,22 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d48e6de8-248e-42a6-9da3-ec91dfac966d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/Controler/RevenueController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/models/Revenue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/repository/RevenueRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/service/RevenueService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/Revenue/revenues-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/Revenue/revenues.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/Controler/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/Controler/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/models/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/models/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/service/RevenueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/java/com/hutech/demo/service/RevenueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/Revenue/revenues-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/Revenue/revenues-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/cart/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/cart/order-confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/cart/order-confirmation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/giaodien/giaodien-sp.html" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/giaodien/giaodien-sp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/products/product-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/doanjava_new/doanjava_new/doanjava/src/main/resources/templates/products/product-list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,22 +23,44 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2ijmABigK1AgIEtSDF2wVKLLtNZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.DemoApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Quang",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="DemoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hutech.demo.DemoApplication" />
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hutech.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DemoApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

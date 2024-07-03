@@ -34,6 +34,7 @@ public class RevenueService {
             newRevenue.setTotalRevenue(revenue);
             revenueRepository.save(newRevenue);
         }
+
     }
 
     public List<Revenue> getAllRevenues() {

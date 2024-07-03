@@ -26,53 +26,58 @@
         .deactive-badge {
             background-color: red;
         }
+        h1, h2 {
+            font-size: 40px; /* Điều chỉnh kích thước chữ cho thẻ h1 */
+        }
+}
     </style>
 </head>
 
 <body>
 <section layout:fragment="content">
     <div class="container mt-4">
-        <h2>Top Sales Products</h2>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Total Sales</th>
-                <th>Order</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="revenue : ${topSaleProducts}">
-                <td th:text="${revenue.product.name}"></td>
-                <td th:text="${revenue.totalSales} + ' sales'"></td>
-                <td class="card-footer">
-                    <form th:action="@{/cart/add}" method="post" sec:authorize="isAuthenticated()" class="mt-2">
-                        <input type="number" name="quantity" min="1" value="1" class="form-control d-inline-block mb-2" style="width: 70px;">
-                        <input type="hidden" th:value="${revenue.product.id}" name="productId"/>
-                        <button type="submit" class="btn btn-warning btn-sm">Thêm Vào Giỏ</button>
-                    </form>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <h2>Top Sản Phẩm Bán Chạy</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" th:each="revenue : ${topSaleProducts}">
+                <div class="card h-100">
+                    <img th:src="@{${revenue.product.image}}" alt="Product Image" class="card-img-top product-image" style="height: 200px; width: 100%; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${revenue.product.name}">Tên Sản Phẩm</h5>
+                        <p class="card-text" th:text="${revenue.product.description}">Mô Tả Sản Phẩm</p>
+                        <p class="card-text">Giá: <span th:text="${revenue.product.price}">Giá</span></p>
+                        <p class="card-text">Loại: <span th:text="${revenue.product.category.name}">Loại</span></p>
+                        <p class="card-text">NSX: <span th:text="${revenue.product.nsx}">Nhà Sản Xuất</span></p>
+                        <p class="card-text">Xuất Xứ: <span th:text="${revenue.product.xuatsu}"> Xuất Xứ</span></p>
+                        <p class="card-text">Sản phẩm đã bán: <span th:text="${revenue.totalSales} + ' lượt mua'">0 lượt mua</span></p>
+                    </div>
+                    <div class="card-footer">
+                        <form th:action="@{/cart/add}" method="post" sec:authorize="isAuthenticated()" class="mt-2">
+                            <input type="number" name="quantity" min="1" value="1" class="form-control d-inline-block mb-2" style="width: 70px;">
+                            <input type="hidden" th:value="${revenue.product.id}" name="productId"/>
+                            <button type="submit" class="btn btn-warning btn-sm">Thêm Vào Giỏ</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <h1>Danh Sách Sản Phẩm</h1>
 
         <div class="row mb-3" sec:authorize="!hasAuthority('ADMIN')">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="form-select custom-border" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         Sắp Xếp Sản Phẩm
                     </button>
-                    <ul class="dropdown-menu w-100" aria-labelledby="sortDropdown">
+                    <ul class="dropdown-menu w-100 custom-border" aria-labelledby="sortDropdown">
                         <li><a class="dropdown-item" th:href="@{/products/sortByPriceAsc}">Giá Tăng Dần</a></li>
                         <li><a class="dropdown-item" th:href="@{/products/sortByPriceDesc}">Giá Giảm Dần</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <form th:action="@{/products/category}" method="get" class="d-flex">
-                    <select name="id" class="form-select" onchange="this.form.submit()">
+                    <select name="id" class="form-select custom-border" onchange="this.form.submit()">
                         <option value="">Chọn Loại Sản Phẩm</option>
                         <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
                     </select>
