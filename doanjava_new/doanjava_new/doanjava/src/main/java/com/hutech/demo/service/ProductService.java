@@ -2,8 +2,13 @@ package com.hutech.demo.service;
 
 import com.hutech.demo.models.Category;
 import com.hutech.demo.models.Product;
+import com.hutech.demo.models.Revenue;
 import com.hutech.demo.repository.CategoryRepository;
 import com.hutech.demo.repository.ProductRepository;
+import com.hutech.demo.repository.RevenueRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -18,6 +23,7 @@ import java.util.Optional;
 
 public class ProductService {
     private final ProductRepository productRepository;
+    private final RevenueRepository revenueRepository;
     // Retrieve all products from the database
     public List<Product> getAllProducts() {
         return productRepository.findAll();
@@ -71,6 +77,7 @@ public class ProductService {
         product.setIsActive(!product.getIsActive());
         productRepository.save(product);
     }
+
     public List<Product> getProductsByCategory(Category category) {
         return productRepository.findByCategory(category);
     }
@@ -80,6 +87,16 @@ public class ProductService {
 
     public List<Product> getAllProductsSortedByPriceDesc() {
         return productRepository.findAllByOrderByPriceDesc();
+    }
+    @PersistenceContext
+    private EntityManager entityManager;
+    public List<Revenue> getTop4SaleProducts() {
+        TypedQuery<Revenue> query = entityManager.createQuery(
+                "SELECT r FROM Revenue r WHERE r.product.isActive = true ORDER BY r.totalSales DESC",
+                Revenue.class
+        );
+        query.setMaxResults(5);
+        return query.getResultList();
     }
 
 }

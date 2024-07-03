@@ -2,41 +2,29 @@ package com.hutech.demo.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
-@Setter
-@Getter
+@Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
-
-@Table(name = "order_details")
-public class OrderDetail {
+@Table(name = "revenue")
+public class Revenue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private int quantity;
-
-    private double price;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
+    @Column(name = "total_sales")
+    private int totalSales;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @Column(name = "total_revenue")
+    private double totalRevenue;
 
-    private String name;
-
-
-    public Product getProduct() {
-        return this.product;
-    }
+    // Constructors, getters, and setters
+    // Ensure to have appropriate constructors and getter/setter methods
 }
-
-

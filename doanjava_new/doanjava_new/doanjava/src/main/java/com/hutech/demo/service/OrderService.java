@@ -5,6 +5,7 @@ import com.hutech.demo.models.*;
 import com.hutech.demo.repository.IUserRepository;
 import com.hutech.demo.repository.OrderDetailRepository;
 import com.hutech.demo.repository.OrderRepository;
+import com.hutech.demo.service.RevenueService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,8 @@ public class OrderService {
     @Autowired
     private CartService cartService;
 
+    @Autowired
+    private RevenueService revenueService;
     // Assuming you have a CartService
 
     @Autowired
@@ -41,7 +44,7 @@ public class OrderService {
 
 
     @Transactional
-    public Order createOrder( List<CartItem> cartItems, String note, String address,
+    public Order createOrder(List<CartItem> cartItems, String note, String address,
                              String number, String email, String thanhtoan, String name) {
 
         Order order = new Order();
@@ -55,32 +58,30 @@ public class OrderService {
 
         double total = 0;
 
-
         for (CartItem item : cartItems) {
             OrderDetail detail = new OrderDetail();
             detail.setOrder(order);
-           // detail.setProduct(item.getProduct());
+            detail.setProduct(item.getProduct());
             detail.setQuantity(item.getQuantity());
             detail.setName(item.getProduct().getName());
             detail.setPrice(item.getProduct().getPrice());
-            total += item.getProduct().getPrice()*item.getQuantity();
-            
+            total += item.getProduct().getPrice() * item.getQuantity();
 
+            // Calculate and store revenue
+            revenueService.calculateAndStoreRevenue(detail);
 
             orderDetailRepository.save(detail);
         }
 
-
-        total1 =total;
-
         order.setPrice(total);
         order = orderRepository.save(order);
-// Optionally clear the cart after order placement
+
+        // Optionally clear the cart after order placement
         cartService.clearCart();
 
-       return order;
-
+        return order;
     }
+
 
 
 
